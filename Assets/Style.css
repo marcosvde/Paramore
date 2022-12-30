@@ -1,0 +1,384 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #302D33;
+    font-family: 'Bitter', serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+a {
+    color: #FF0077;
+    text-decoration: none;
+    transition: 0.3;
+}
+
+a:hover {
+    opacity: 0.9;
+    text-decoration:solid;
+}
+
+nav {
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+}
+
+.nav-list {
+    color: #fff;
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-list li {
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 20px;
+}
+
+
+.nav-list a {
+    position: relative;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.nav-list a:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s ease;
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
+    color: #fff;
+    mix-blend-mode: color;
+
+}
+
+.nav-list a:hover:before {
+    scale: 1.015;
+    width: 100%;
+    bottom: -10px;
+    background: rgb(255, 0, 119);
+    height: 50px;
+
+}
+
+.mobile-menu {
+    cursor: pointer;
+    display: none;
+
+}
+
+.mobile-menu div {
+    width: 40px;
+    height: 2px;
+    background: #fff;
+    margin: 10px;
+    transition: 0.2s ease 0.1s;
+}
+
+section {
+    padding: 100px 200px;
+}
+
+.home {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.home:before {
+    z-index: 777;
+    content: '';
+    position: absolute;
+ }
+
+.home .content {
+    z-index: 888;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;
+}
+
+.home .content h1 {
+    font-size: 4em;
+    font-weight: 900;
+    color: rgb(255, 0, 119);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+}
+
+.home .content h1 span {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.home .content p {
+    flex-wrap: wrap;
+    margin-bottom: 65px;
+    width: 700pt;
+}
+
+
+.home .content a {
+    background: #262626;
+    padding: 15px 35px;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.home .media-icons {
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5 ease;
+}
+
+.home .media-icons a {
+    color: #FF0077;
+    padding: 1.6em;
+}
+
+.home .media-icons a:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.home .media-icons a:hover {
+    transform: scale(1.3);
+}
+
+
+
+.home video{
+    z-index: -1;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    object-fit:cover;
+    overflow: hidden;
+}
+
+
+
+@media (max-width: 1300px) {
+
+    .nav-list a {
+        font-size: 20px;
+        padding: 0px 6px 0px 6px;
+    }
+
+
+}
+
+@media (max-width: 1140px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {        
+        z-index: 999;
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 50vw;
+        height: 92vh;
+        background:  rgb(48, 45, 51);
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+
+    .nav-list.active {
+        transform: translateX(0);
+        box-shadow:         -15px -7px 4px 2px rgba(48, 45, 51, 0.98);
+    }
+
+
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    }
+
+    .mobile-menu.active .line1 {
+        transform: translatey(17px) rotatez(-45deg);
+    }
+
+    .mobile-menu.active .line2 {
+        opacity: 0;
+
+    }
+
+    .mobile-menu.active .line3 {
+        transform: translatey(-7px) rotate(45deg);
+    }
+
+
+    .home .media-icons {
+        margin-bottom: 130px;
+        right: 0px;
+    }
+}
+
+@media (min-width:768px) and (max-width: 1039px) {
+    section {
+        padding: 100px 50px;
+    }
+
+
+    .home .content h1 {
+        font-size: 3em;
+        font-weight: 900;
+        color: rgb(255, 0, 119);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        line-height: 55px;
+        margin-bottom: 40px;
+    }
+}
+
+.home .content h1 span {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.home .content p {
+    margin-bottom: 40px;
+    width: 450pt;
+    font-size: 11pt;
+}
+
+.home .content {
+    height: auto;
+    flex-direction: column;
+}
+
+
+@media (min-width:600px) and (max-width: 767px) {
+    section {
+        padding: 100px 50px;
+    }
+
+    element.style {
+        width: 300px;
+        height: 200px;
+    }
+
+    .home .content h1 {
+        font-size: 2em;
+        font-weight: 900;
+        letter-spacing: auto;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+    .home .content p {
+        width: 300pt;
+        font-size: 10pt;
+    }
+
+
+
+    .home .content {
+        width: 100%;
+    }
+
+
+}
+
+@media (min-width:426px) and (max-width: 599px) {
+    section {
+        padding: 100px 50px;
+    }
+
+    element.style {
+        width: 300px;
+        height: 200px;
+    }
+
+    .home .content h1 {
+        font-size: 2em;
+        font-weight: 900;
+        letter-spacing: auto;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+
+    .home .content h1 span {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .home .content p {
+
+        width: 180pt;
+        font-size: 10pt;
+    }
+
+
+
+    .home .content {
+        width: 100%;
+    }
+
+
+}
